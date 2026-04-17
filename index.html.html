@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repositorio Física Aplicada</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #2b2b2b, #1e1e2f);
+      color: #ffffff;
+    }
+
+    header {
+      background-color: #111827;
+      padding: 25px;
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 30px 20px;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .project {
+      background-color: #1f2937;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    }
+
+    .project h2 {
+      margin-top: 0;
+      font-size: 22px;
+      color: #60a5fa;
+    }
+
+    .project p {
+      font-size: 14px;
+      color: #d1d5db;
+    }
+
+    .task-input {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .task-input input {
+      flex: 1;
+      padding: 8px;
+      border: none;
+      border-radius: 6px;
+    }
+
+    .task-input button {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+      background-color: #3b82f6;
+      color: white;
+      cursor: pointer;
+    }
+
+    .task {
+      background-color: #374151;
+      margin-top: 10px;
+      padding: 8px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .task button {
+      background-color: #ef4444;
+      border: none;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    Repositorio Física Aplicada
+  </header>
+
+  <div class="container">
+    <div class="projects">
+
+      <!-- Proyecto 1 -->
+      <div class="project">
+        <h2>Calculadora Fisica</h2>
+        <p>Descripción del proyecto.</p>
+
+        <div class="task-input">
+          <input type="text" id="input1" placeholder="Agregar tarea...">
+          <button onclick="addTask('list1','input1')">Agregar</button>
+        </div>
+
+        <div id="list1"></div>
+      </div>
+
+      <!-- Proyecto 2 -->
+      <div class="project">
+        <h2>Detector de Aplausos</h2>
+        <p>Descripción del proyecto.</p>
+
+        <div class="task-input">
+          <input type="text" id="input2" placeholder="Agregar tarea...">
+          <button onclick="addTask('list2','input2')">Agregar</button>
+        </div>
+
+        <div id="list2"></div>
+      </div>
+
+      <!-- Proyecto 3 -->
+      <div class="project">
+        <h2>Proyecto 3</h2>
+        <p>Descripción del proyecto.</p>
+
+        <div class="task-input">
+          <input type="text" id="input3" placeholder="Agregar tarea...">
+          <button onclick="addTask('list3','input3')">Agregar</button>
+        </div>
+
+        <div id="list3"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function addTask(listId, inputId) {
+      const input = document.getElementById(inputId);
+      const text = input.value.trim();
+
+      if (text === '') return;
+
+      const list = document.getElementById(listId);
+
+      const taskDiv = document.createElement('div');
+      taskDiv.className = 'task';
+
+      const span = document.createElement('span');
+      span.textContent = text;
+
+      const deleteBtn = document.createElement('button');
+      deleteBtn.textContent = 'X';
+      deleteBtn.onclick = () => taskDiv.remove();
+
+      taskDiv.appendChild(span);
+      taskDiv.appendChild(deleteBtn);
+
+      list.appendChild(taskDiv);
+
+      input.value = '';
+    }
+  </script>
+
+</body>
+</html>
