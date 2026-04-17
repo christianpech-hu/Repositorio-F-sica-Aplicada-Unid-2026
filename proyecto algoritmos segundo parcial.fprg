@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="proyecto algoritmos segundo parcial"/>
+        <attribute name="authors" value="Christian"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-04-09 06:11:22 p. m."/>
+        <attribute name="created" value="Q2hyaXN0aWFuO0NIUklTUEM7MjAyNi0wNC0wOTswNToxNDo1MSBwLiBtLjsyOTI4"/>
+        <attribute name="edited" value="Q2hyaXN0aWFuO0NIUklTUEM7MjAyNi0wNC0wOTswNjoxMToyMiBwLiBtLjsxOzMwMzI="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="tiempo" type="Real" array="False" size=""/>
+            <comment text="tiempo = horas"/>
+            <declare name="tarifa" type="Real" array="False" size=""/>
+            <comment text="1 hora = $15 mx"/>
+            <declare name="costo" type="Real" array="False" size=""/>
+            <comment text="costo = cantidad de horas * $15"/>
+            <declare name="membresia" type="Integer" array="False" size=""/>
+            <comment text="si cuenta con ella se aplica un descuento el 0.15%"/>
+            <declare name="descuento" type="Real" array="False" size=""/>
+            <declare name="total" type="Real" array="False" size=""/>
+            <assign variable="tarifa" expression="15"/>
+            <assign variable="descuento" expression="0.15"/>
+            <output expression="&quot;Ingresa las horas que ha permanecido estacionado&quot;" newline="True"/>
+            <input variable="tiempo"/>
+            <output expression="&quot;&#191;Cuenta con mebresia? 1 para si, 2 para no&quot;" newline="True"/>
+            <input variable="membresia"/>
+            <assign variable="costo" expression="tiempo * tarifa"/>
+            <if expression="membresia == 1">
+                <then>
+                    <assign variable="total" expression="costo - (costo * descuento)"/>
+                </then>
+                <else>
+                    <assign variable="total" expression="costo"/>
+                </else>
+            </if>
+            <output expression="&quot;Gracias por su visita El monto total a pagar por su estadia es:&quot; &amp; total" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
